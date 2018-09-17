@@ -1,0 +1,17 @@
+all : UdpServer UdpClient
+.PHONY : all
+UdpServer : UdpServer.o
+	cc -o UdpServer UdpServer.o
+	rm UdpServer.o
+
+UdpClient : UdpClient.o
+	cc -o UdpClient UdpClient.o
+	rm UdpClient.o
+UdpServer.o : UdpServer.c
+	cc -c UdpServer.c
+
+UdpClient.o : UdpClient.c
+	cc -c UdpClient.c
+
+clean :
+	rm UdpServer UdpClient
