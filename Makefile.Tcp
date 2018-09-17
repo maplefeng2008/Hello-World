@@ -1,0 +1,17 @@
+all : TcpServer TcpClient
+.PHONY : all
+TcpServer : TcpServer.o
+	cc -o TcpServer TcpServer.o
+	rm TcpServer.o
+
+TcpClient : TcpClient.o
+	cc -o TcpClient TcpClient.o
+	rm TcpClient.o
+TcpServer.o : TcpServer.c
+	cc -c TcpServer.c
+
+TcpClient.o : TcpClient.c
+	cc -c TcpClient.c
+
+clean :
+	rm TcpServer TcpClient
